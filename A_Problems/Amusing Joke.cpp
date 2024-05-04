@@ -24,15 +24,15 @@ using namespace std;
 #define yomn ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 int32_t main() {
-    int t;
-    cin >> t;
+   string x, y, z;
 
-    double x, total = 0, n = t ;
+   cin >> x >> y >> z;
+   x += y;
+   sort(x.begin(), x.end());
+   sort(z.begin(), z.end());
 
-    while (t--){
-        cin >> x;
-        total += (x/100);
-    }
+   string result = (x == z) ? "YES" : "NO";
+   cout << result;
+   END
 
-    cout << (total/n)*100;
 }
