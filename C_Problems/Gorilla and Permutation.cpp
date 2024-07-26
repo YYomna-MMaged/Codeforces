@@ -23,21 +23,15 @@ using namespace std;
 #define yomn ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 void solve(){
-    int n, k, ans = 0, mx = 0;
-    cin >> n >> k;
+    int n, m, k;
+    cin >> n >> m >> k;
 
-    for (int i = 0; i < k; ++i) {
-        int x;
-        cin >> x;
-
-        if (x > 1)
-            ans += (x*2)-1;
-        else
-            ans++;
-        mx = max(mx, x);
+    for (int i = n; i > m; --i) {
+        cout << i << " ";
     }
-
-    cout << ans - ((mx*2) - 1);
+    for (int i = 1; i <= m; ++i) {
+        cout << i << " ";
+    }
     END
 
 }
