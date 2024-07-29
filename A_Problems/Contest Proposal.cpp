@@ -23,39 +23,24 @@ using namespace std;
 #define yomn ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 void solve(){
-    int n, m1 = INT_MAX, m2 = INT_MAX;
+    int n;
     cin >> n;
-    deque< int > a;
-    deque< int > a2;
+    vector< int > as(n);
+    vector< int > bs(n);
 
-    fr(n){
-        int x;
-        cin >> x;
+    fr(n){ cin >> as[i]; }
+    fr(n){ cin >> bs[i]; }
 
-        a.push_back(x);
-        m1 = min(m1, x);
+    int a_ind = 0, b_ind = 0, ans = 0;
 
+    while (b_ind < n){
+        if (as[a_ind] > bs[b_ind])
+            ans++;
+        else
+            a_ind++;
+        b_ind++;
     }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] % m1 != 0 ){
-            a2.push_back(a[i]);
-
-            m2 = min(m2, a[i]);
-        }
-    }
-
-    if (!a2.empty()){
-        for (int i = 0; i < a2.size(); ++i) {
-            if (a2[i] % m2 != 0 ){
-                cout << "NO";
-                END
-                return;
-            }
-        }
-    }
-
-    cout << "YES";
+    cout << ans;
     END
 }
 int32_t main() {
